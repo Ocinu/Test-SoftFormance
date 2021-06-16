@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 
 {% block body %}
+    <div class="row">
+        <div class="col"><a href="{% url 'home' %}">All posts</a></div>
+        <div class="col"><a href="{% url 'my_posts' %}">My posts</a></div>
+        <div class="col"><a href="{% url 'tracking_posts' %}">Tracking posts</a></div>
+    </div>
     <h1>Main Page</h1>
+    {% for i in items %}
+    <div class="row">
+    <div class="col">{{ i.content }}</div>
+    <div class="col">{{ i.user }}</div>
+    <div class="col"><a href="{% url 'following' %}">Follow</a></div>
+    </div>
+    {% endfor %}
 {% endblock %}
